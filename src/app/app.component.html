@@ -1,0 +1,79 @@
+<div>
+  <h1>{{ title }}</h1>
+  <form
+    #form="ngForm"
+    class="form inline-flex"
+    [formGroup]="formGroup"
+    (submit)="onSubmit()"
+  >
+    <div class="inline-flex">
+      <label for="sample">String Input</label>
+      <input
+        id="sample"
+        placeholder="Enter some non-numerical text"
+        formControlName="sample"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="form.submitted && sample?.invalid && sample?.errors?.['required']"
+      >
+        Input is required
+      </span>
+      <span
+        class="error"
+        *ngIf="form.submitted && sample?.invalid && sample?.errors?.['pattern']"
+      >
+        Invalid input. Please enter non numeric string
+      </span>
+      <div class="info" *ngIf="count > 0">Count: {{ count }}</div>
+    </div>
+    <div class="inline-flex">
+      <label for="url">URL Input</label>
+      <input
+        id="url"
+        placeholder="Enter an active API path with description property"
+        formControlName="url"
+        required
+      />
+      <span
+        class="error"
+        *ngIf="form.submitted && url?.invalid && url?.errors?.['required']"
+      >
+        URL Input is required
+      </span>
+      <span
+        class="error"
+        *ngIf="form.submitted && url?.invalid && url?.errors?.['pattern']"
+      >
+        Invalid URL format
+      </span>
+      <span
+        class="error"
+        *ngIf="form.submitted && descriptionError && !description"
+      >
+        {{ descriptionError }}
+      </span>
+      <div class="info" *ngIf="description && !descriptionError">
+        {{ description }}
+      </div>
+    </div>
+    <div *ngIf="topWords" class="flex-center">
+      <table class="top-words">
+        <thead>
+          <tr>
+            <th>Words</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let topWord of topWords">
+            <td>{{ topWord.text }}</td>
+            <td>{{ topWord.occurences }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

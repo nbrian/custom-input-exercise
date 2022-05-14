@@ -1,0 +1,58 @@
+.form {
+  width: 100%;
+  div {
+    margin: 8px 0;
+    padding: 20px;
+    input {
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .error {
+      color: red;
+    }
+  }
+  button {
+    background-color: #525252;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .info {
+    margin: 8px;
+    background: #f2f2f2;
+  }
+  .top-words {
+    border-collapse: collapse;
+    width: 50%;
+    tbody td,
+    thead th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    thead th {
+      background-color: #5d5d5d;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+.inline-flex {
+  display: inline-flex;
+  flex-direction: column;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
